@@ -5,7 +5,7 @@ class StepConverter
       arguments = matched.regex.match(step_line)[1..-1]
       "#{matched.method_name}(#{arguments.map(&:inspect).join(", ")})"
     else
-      "# #{step_line} -- not method match \n"
+      "# #{step_line} -- no method matched \n"
     end
   end
 

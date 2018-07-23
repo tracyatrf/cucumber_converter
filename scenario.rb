@@ -1,5 +1,8 @@
 class Scenario
-  attr_accessor :name, :steps, :step_data
+  include StepContainer
+
+  attr_accessor :name
+
   def initialize(gherkin, step_data)
     @name = gherkin[:name]
     @steps = gherkin[:steps] || []
@@ -7,27 +10,13 @@ class Scenario
     @step_data = step_data
   end
 
+  private
+
   def scenario_tags
     tag_parser.format_tags(@tags)
   end
 
-  def tag_parser
-    @tag_parser ||= TagParser.new
-  end
-
-  def step_converter
-    @step_converter ||= StepConverter.new
-  end
-  
-  def parse_step(step)
-    step_converter.convert(step[:text], step_data)
-  end
-
-  def to_s
-<<-EOT
-  scenario \"#{name}\"#{scenario_tags} do
-#{steps.map{|step| parse_step(step) }.map{|s| "    %s" % s}.join("\n")}
-  end
-EOT
+  def template_path
+    "./templates/scenario.erb"
   end
 end
