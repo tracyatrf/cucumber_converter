@@ -32,12 +32,12 @@ alias :When :Given
 #load all step definitions to be captured
 step_files.each(&method(:load))
 
-# Beep Boop Beep -- now we have code for step definitions 
+# Beep Boop Beep -- now we have code for step definitions
 steps = STEP_CAPTURER.post_process!
-StepDefinitionWriter.new.write_step_files(steps, STEP_PATH_BASE)
+StepDefinitionWriter.new(steps, STEP_PATH_BASE).write_step_files
 
 # convert feature files
-# use gherkin parser to get an object representation of a feature file, 
+# use gherkin parser to get an object representation of a feature file,
 # and write it in rspec syntax
 parser = Gherkin::Parser.new
 

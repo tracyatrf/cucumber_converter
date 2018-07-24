@@ -11,7 +11,7 @@ class StepCapturer
 
   def post_process!
     @step_definitions = step_definitions.map do |step|
-      step.process!(step_definitions) 
+      step.process!(step_definitions)
     end
   end
 end

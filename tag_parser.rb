@@ -1,6 +1,6 @@
 class TagParser
-  RELEVANT_TAGS = { "@javascript" => "js: true", "@bumbleworks" => "bumbleworks: true" } 
-  
+  RELEVANT_TAGS = { "@javascript" => "js: true", "@bumbleworks" => "bumbleworks: true" }
+
   def format_tags(gherkin_tags)
     formatted_tags(gherkin_tags.select{ |tag| RELEVANT_TAGS.keys.include? tag[:name] })
   end
