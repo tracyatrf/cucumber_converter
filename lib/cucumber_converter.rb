@@ -1,3 +1,5 @@
+GEM_PATH = File.dirname(File.expand_path(__FILE__))
+
 require 'fileutils'
 require 'erb'
 require 'gherkin/parser'
@@ -13,8 +15,9 @@ require_relative 'scenario'
 require_relative 'tag_parser'
 require 'pry'
 
-STEP_PATH_BASE = "/Users/tmeade/rpace/panda/features/step_definitions"
-FEATURE_PATH_BASE = "/Users/tmeade/rpace/panda/features/user"
+STEP_PATH_BASE = "./features/step_definitions"
+FEATURE_PATH_BASE = "./features/user"
+WD = `pwd`.chomp
 STEP_CAPTURER = StepCapturer.new
 
 step_files = Dir.glob("#{STEP_PATH_BASE}/**/*.rb")
@@ -45,7 +48,7 @@ feature_files.each do |filename|
   gherkin_document = parser.parse(File.read(filename))
   rspec_feature = Feature.new(gherkin_document, steps)
 
-  new_file = filename.gsub(FEATURE_PATH_BASE, File.expand_path(File.dirname(__FILE__) + "/dist/features/")).gsub(".feature",".rb")
+  new_file = File.expand_path(filename.gsub(FEATURE_PATH_BASE, File.expand_path("cucumber_to_rspec/features/", WD)).gsub(".feature",".rb"))
 
   FileUtils.mkdir_p(File.dirname(new_file))
   File.open(new_file, 'w+') do |f|

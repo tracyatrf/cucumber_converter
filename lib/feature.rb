@@ -31,6 +31,6 @@ class Feature
   end
 
   def template_path
-    "./templates/feature.erb"
+    File.expand_path('./templates/feature.erb', GEM_PATH)
   end
 end

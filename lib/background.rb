@@ -7,6 +7,6 @@ class Background
   end
 
   def template_path
-    "./templates/background.erb"
+    File.expand_path('./templates/background.erb', GEM_PATH)
   end
 end

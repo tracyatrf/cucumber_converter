@@ -21,7 +21,7 @@ class StepDefinitionWriter
   end
 
   def new_file_path(filename)
-    filename.gsub(base_path, File.expand_path(File.dirname(__FILE__) + "/dist/step_definitions"))
+    filename.gsub(File.expand_path(base_path), File.expand_path("cucumber_to_rspec/step_definitions/", WD))
   end
 
   def write_file(filename, file_contents)
@@ -35,6 +35,6 @@ class StepDefinitionWriter
   end
 
   def template_path
-    './templates/step_definitions_file.erb'
+    File.expand_path('./templates/step_definitions_file.erb', GEM_PATH)
   end
 end

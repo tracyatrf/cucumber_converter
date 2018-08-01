@@ -17,6 +17,6 @@ class Scenario
   end
 
   def template_path
-    "./templates/scenario.erb"
+    File.expand_path('./templates/scenario.erb', GEM_PATH)
   end
 end

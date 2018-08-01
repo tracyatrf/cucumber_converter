@@ -1,4 +1,5 @@
 require 'method_source'
+
 class StepDefinition
   attr_accessor :regex, :block, :location, :method_name, :processed_code
 
@@ -28,7 +29,7 @@ class StepDefinition
   end
 
   def template_path
-    "./templates/step_definition.erb"
+    File.expand_path('./templates/step_definition.erb', GEM_PATH)
   end
 
   def template
