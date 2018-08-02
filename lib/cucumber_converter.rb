@@ -4,6 +4,7 @@ require 'fileutils'
 require 'erb'
 require 'gherkin/parser'
 require 'gherkin/pickles/compiler'
+require_relative 'config'
 require_relative 'step_capture'
 require_relative 'step_container'
 require_relative 'step_definition'
@@ -15,8 +16,8 @@ require_relative 'scenario'
 require_relative 'tag_parser'
 require 'pry'
 
-STEP_PATH_BASE = "./features/step_definitions"
-FEATURE_PATH_BASE = "./features/user"
+STEP_PATH_BASE = CucumberConverter.config.step_path_base
+FEATURE_PATH_BASE = CucumberConverter.config.feature_path_base
 WD = `pwd`.chomp
 STEP_CAPTURER = StepCapturer.new
 
