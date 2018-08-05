@@ -3,6 +3,18 @@ class Feature
 
   attr_accessor :gherkin
 
+  class << self
+    def parse_features(feature_files, parser, steps)
+      feature_files.each_with_object({}) do |filename, memo|
+        gherkin_document = parser.parse(File.read(filename))
+        new_filename = FileWriter
+          .write_path(Config.feature_path_base, "cucumber_to_rspec/features/", WD, filename)
+          .gsub('.feature', '.rb')
+        memo[new_filename] = new(gherkin_document, steps)
+      end
+    end
+  end
+
   def initialize(gherkin, step_data)
     @gherkin = gherkin
     @step_data = step_data
