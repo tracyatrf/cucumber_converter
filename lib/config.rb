@@ -3,7 +3,8 @@ module Configuration
     def default_config
       {
         step_path_base: File.expand_path("features/step_definitions", WD),
-        feature_path_base: File.expand_path("features", WD)
+        feature_path_base: File.expand_path("features", WD),
+        tags: { "@javascript" => "js: true" }
       }
     end
 
