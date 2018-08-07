@@ -61,7 +61,7 @@ You may need to set some custom options, in that case, you can create a `.cucumb
 `step_path_base` This is the directory where your step_definitions live. This defaults to `features/step_definitions/`
 
 `tags` This is a mapping of any cucumber tags that you need to specifcally map. For example, in cucumber where you use the tag
-`@javascript` you need the RSpec feature to use `js: true`. This allows you to set some mappings. Use a hash map here.
+`@javascript` you need the RSpec feature to use `js: true`. I would also recommend mapping tags that would make for cumbersome or illegal ruby symbols. This allows you to set some mappings. Use a hash map here.
 
 Example:
 
@@ -70,6 +70,7 @@ Example:
   :feature_path_base: './cucumber_features/'
   :step_path_base: './cucumber_features/steps/'
   :tags: 
-     :@javascript: 'js: true'
-     :@tba: 'skip: true'
+     '@javascript': 'js: true'
+     '@tba': 'skip: true'
+     '@II-1234': ':II1234'
 ```

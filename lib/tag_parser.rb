@@ -1,6 +1,6 @@
 class TagParser
-  def format_tags(gherkin_tags)
+  def format_tags(tags)
     return nil if tags.empty?
-    ", #{tags.map{ |tag| Config.tags[tag[:name]] || tag }.join(", ")}"
+    ", #{tags.map{ |tag| Config.tags[tag[:name]] || tag[:name].tr('@',':') }.join(", ")}"
   end
 end
