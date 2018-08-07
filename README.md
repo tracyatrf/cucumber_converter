@@ -1,5 +1,5 @@
-CUCUMBER 2 RSPEC CONVERTER
-==========================
+Cucumber Converter (to RSpec)
+------------------
 
 This Gem is meant to convert cucumber tests into RSpec tests.
 
@@ -8,7 +8,7 @@ It attempts to maintain the readability of the cucumber tests, but we lose the r
 and end out saving a decent amount of time in test execution, and developers seem to find them a bit easier to work with.
 
 LIMITATIONS
-===========
+-----------
 I did not attempt to handle some of the features of cucumber that we don't use often, such as the matrix tests.
 This merely handles the straightforward feature/scenario/test structure, which was easily 99% of the test suite this
 was developed for.
@@ -22,7 +22,7 @@ Be aware that it would write a improperly named method called:
 `def i_do_not_like_pie`
 
 Usage
-=====
+-----
 
 You should install the gem globally, as this is how it is meant to be used.
 clone the repo locally and run the command:
@@ -36,7 +36,7 @@ This will create a folder called `cucumber_to_rspec` in your directory. This wil
 and a lot of files that add methods into the `StepDefinitions` module.
 
 Configuration
-=============
+-------------
 From here, it is up to you to wire this up.
 I recommend just moving the directories into your `/spec` directory, or alternatively you can customize your test runner
 to use this directory.
