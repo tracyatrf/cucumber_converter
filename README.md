@@ -31,6 +31,11 @@ clone the repo locally and run the command:
 gem install cucumber_converter-0.0.1.gem
 ```
 
+or install from RubyGems.org
+```
+gem install cucumber_converter
+```
+
 To use this, simply navigate to the root of your project directory and run `cucumber_convert`
 This will create a folder called `cucumber_to_rspec` in your directory. This will contain new RSpec features
 and a lot of files that add methods into the `StepDefinitions` module.
